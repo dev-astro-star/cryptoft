@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "scripts": {
+    "build": "cd ./",
+    "start": "node server.js"
+  }
+}

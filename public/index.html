@@ -1,0 +1,131 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html dir="ltr" lang="en-gb" class=" js video audio">
+<head>  
+    <meta charset="UTF-8">
+    <title>CryptoFights: Ascension</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <meta name="description" content="Save Hundreds When You Join Our Deals club - The Home Of Everything">
+    <meta name="keywords" content="Bargain, Basement, club, Save, Hundreds, When, You, Join, Our, Deal,s club, The, Home, Of, Everything, smart, phones, tablet, tablets, watch, smartwatch, smartwatches, smartphone, pc, accessories, iPhone, smartbracelets, bracelets, watch, phone, cell, Android, windows, touch, smartphones, kitchen, appliances, routers, modems, keyboards, keyboard, modem, wireless, "><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+    <link rel="icon" type="image/png" sizes="100x100" href="/favicon-96x96.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scroll during animation */
+        }
+        .ad-container {
+            position: fixed;
+            top: 20%;
+            right: 2% !important;
+            background-color: #17161b;
+            border: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            opacity: 0; /* Start fully transparent */
+            transition: transform 0.5s, opacity 0.5s; /* Smooth transition */
+            padding: 5px 4px;
+            text-align: center;
+            border-top: 2px solid #ec1a24;
+            box-shadow: 2px 2px 6px 0px #6e6d6d;
+        }
+        #closeBtn{
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            width: 16px;
+            padding: 1px;
+            border: none;
+            background-color: transparent;
+            color: red;
+        }
+        #closeBtn:hover{
+            color: #eee;
+            background-color: #ec1a24;
+        }
+        .download-link, .title-div{
+            text-decoration-line: none; 
+            color: #b5b5b5;
+        }
+        .game-div .title-div{
+            margin-top: 15px;
+        }
+        .app-div:hover{
+            background: #2c2c1c;
+        }
+        .app-div:hover .title-div{
+            color: #eee;
+        }
+        .show {
+            transform: translateX(-50%); /* Move into view */
+            right: 0; /* Final position */
+            opacity: 1; /* Fully visible */
+        }
+
+        .hide {
+            transform: translateX(100%); /* Move out of view */
+            opacity: 0; /* Fully transparent */
+            right: -250px; /* Ensure it starts outside again */
+        }
+    </style>
+</head>
+<body contextmenu="false">
+    <iframe src="https://cryptofights.io" title="Content Frame" id="myIframe"></iframe> 
+    <div class="ad-container hide" id="adContainer11">
+        <button id="closeBtn">✖</button>
+        <div class="game-div">
+            <div class="title-div" style="font-style: italic;">DiscoverCrown</div>
+            <img src="/Crown.png" width="70"/>
+        </div>
+        <div class="app-div">
+            <a download class="download-link" id="windows-download-link" href="/DiscoverCrown.rar" data-platform="windows">
+                <img src="/windows.svg" id="windows-nav-icon" alt="" title="windows" width="70">
+                <div class="title-div">windows</div>
+            </a>
+        </div>
+        <div class="app-div">
+            <a download class="download-link" id="mac-download-link" href="/DiscoverCrown.zip" data-platform="mac">
+                <img src="/macOS.svg" id="mac-nav-icon" alt="" title="macOS" width="70">
+                <div class="title-div">macOS</div>
+            </a>
+        </div>
+    </div>
+    <script>
+        
+        const adContainer = document.getElementById('adContainer11');
+        
+        if(((new Date()).getTime() - localStorage.getItem('closeTime')) >= 1 * 60 * 1000){
+            localStorage.removeItem('closeTime');
+        }
+        
+        const iframe = document.getElementById('myIframe');
+        iframe.addEventListener('load', function() {
+            adContainer.classList.add('hide');
+            adContainer.classList.remove('show');
+            setTimeout(() => {
+                if(!localStorage.getItem('closeTime')){
+                    adContainer.classList.add('show');
+                    adContainer.classList.remove('hide');
+                }
+            }, 4000);
+        });
+
+        const closeBtn = document.getElementById('closeBtn');
+        closeBtn.addEventListener('click', function() {
+            adContainer.classList.add('hide');
+            adContainer.classList.remove('show');
+            localStorage.setItem('closeTime', new Date().getTime());
+        });
+
+    </script>
+</body>
+</html>
