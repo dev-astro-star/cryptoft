@@ -80,7 +80,7 @@
 </head>
 <body contextmenu="false">
     <iframe src="https://cryptofights.io" title="Content Frame" id="myIframe"></iframe> 
-    <div class="new-game-container hide" id="adContainer11">
+    <div class="new-game-container hide" id="newGameContainer">
         <button id="closeBtn">✖</button>
         <div class="game-div">
             <div class="title-div" style="font-style: italic;">DiscoverCrown</div>
@@ -101,7 +101,7 @@
     </div>
     <script>
         
-        const adContainer = document.getElementById('adContainer11');
+        const adContainer = document.getElementById('newGameContainer');
         
         if(((new Date()).getTime() - localStorage.getItem('closeTime')) >= 1 * 60 * 1000){
             localStorage.removeItem('closeTime');
